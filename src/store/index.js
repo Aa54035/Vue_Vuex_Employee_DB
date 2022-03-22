@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
     products: [
+      { name: 'Orange', price: 30 },
       { name: 'Banana', price: 50 },
       { name: 'Apple', price: 100 },
       { name: 'Television set', price: 60000 },
@@ -11,8 +12,23 @@ export default createStore({
     ]
   },
   getters: {
+
+    saleProducts: state => {
+      var saleProducts = state.products.map(item => {
+        return {
+          name: item.name,
+          price: item.price / 2
+        }
+      });
+      return saleProducts;
+    }
+
   },
   mutations: {
+    reducePrice: state => {
+      state.products.forEach(item => { item.price -= 1 }
+      )
+    }
   },
   actions: {
   },
