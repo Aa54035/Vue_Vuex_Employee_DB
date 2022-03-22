@@ -24,8 +24,7 @@
 export default {
   computed: {
     products() {
-      return this.$store.state.products;
-    
+      return this.$store.state.products;  
     },
     saleProducts() {
       return this.$store.getters.saleProducts;
@@ -33,12 +32,10 @@ export default {
   },
     methods: {
       reducePrice:function () {
-      this.$store.commit("reducePrice");
+      this.$store.dispatch('reducePrice');
     }
   }
 }
-
-
 </script>
 
 <style>
